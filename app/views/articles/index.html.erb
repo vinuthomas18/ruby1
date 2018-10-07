@@ -1,0 +1,28 @@
+<h1 align="center">All Articles</h1>
+
+
+
+    
+    <%@articles.each do |obj| %>
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="card bg-light col-sm-8">
+                <div class="article-title">
+        <%=link_to obj.title,article_path(obj)%>            
+                </div>
+                <div class="article-body">
+        <%=link_to truncate(obj.description,lenght:15)%>                    
+                </div>
+                
+                
+   <div class="article-actions">
+<%= link_to "Edit this article", edit_article_path(obj), class: "btn btn-sm btn-primary"%>    
+<%= link_to "Delete this article", article_path(obj),method: :delete,data: {confirm:"Are you really want to delete?"}, class: "btn btn-sm btn-danger"%>    
+
+</div>
+
+</div>
+<br>
+        </div>
+    </div>
+    <%end %>
